@@ -9,28 +9,23 @@ import { Observable } from 'rxjs';
 export class WeatherService {
 
   private apiUrl =
-    'http://127.0.0.1:8000/api/weather/';
+    'https://weathernow-5ed0.onrender.com/api/weather/';
 
   private forecastApiUrl =
-    'http://127.0.0.1:8000/api/forecast/';
+    'https://weathernow-5ed0.onrender.com/api/forecast/';
 
   constructor(private http: HttpClient) {}
 
-  // Get current weather
   getWeather(city: string): Observable<any> {
     return this.http.get<any>(this.apiUrl, {
-      params: {
-        city: city
-      }
+      params: { city: city }
     });
   }
 
-  // Get 5-day weather forecast
   getForecast(city: string): Observable<any> {
     return this.http.get<any>(this.forecastApiUrl, {
-      params: {
-        city: city
-      }
+      params: { city: city }
     });
   }
 }
+
